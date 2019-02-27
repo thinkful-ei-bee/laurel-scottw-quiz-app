@@ -77,11 +77,11 @@ const STORE = {
     {
       num: 9,
       text: 'What do Academy Award presenters say before announcing a winner?',
-      a1: '"And the winner is..."',
-      a2: '"And the Academy Award goes to..."',
-      a3: '"And the Oscar goes to..."',
+      a1: 'And the winner is...',
+      a2: 'And the Academy Award goes to...',
+      a3: 'And the Oscar goes to...',
       a4: 'It Depends on the Presenter',
-      correct: '"And the Oscar goes to..."'
+      correct: 'And the Oscar goes to...'
     },
     {
       num: 10,
@@ -98,123 +98,265 @@ const STORE = {
   questionOn: 0,
   score: 0,
   startPage: true,
+  quizPage: false,
   answerPage: false,
   resultsPage: false
 };
 
-
 //start page
+function startPageTemplate() {
+  return `
+  <section>
+  <h1>Oscars Quiz</h1>
+  <section id="start-page" role="region">
+  <h2>Ladies and Gentlemen, Welcome to the first annual Oscars Quiz!</h2>
+  <button id="js-start-button">Let's Goooo!</button>
+</section>`;
+}
 
-
-
-
+//question page
+function questionPageTemplate() {
+  return `
+  <div id="quiz-container">
+      <header role="banner">
+          <img src="#" alt="#"> <!-- add an icon/image of like an award here or something-->
+          <ul>
+            <li>Question:<span class="quesNum">${STORE.questionOn}</span>/10</li>
+            <li>Score:<span class="personScore">${STORE.score}</span>/10</li>
+          </ul>
+        </header>
+        <h2>${STORE.questions[STORE.questionOn - 1].text}</h2>
+    <form>
+          <fieldset>
+            <label class="js-answerOption">
+              <input type="radio" value="${STORE.questions[STORE.questionOn - 1].a1}" name="answer" required>
+              <span>${STORE.questions[STORE.questionOn - 1].a1}</span>
+            </label>
+            <label class="js-answerOption">
+              <input type="radio" value="${STORE.questions[STORE.questionOn - 1].a2}" name="answer" required>
+              <span>${STORE.questions[STORE.questionOn - 1].a2}</span>
+            </label>
+            <label class="js-answerOption">
+              <input type="radio" value="${STORE.questions[STORE.questionOn - 1].a3}" name="answer" required>
+              <span>${STORE.questions[STORE.questionOn - 1].a3}</span>
+            </label>
+            <label class="js-answerOption">
+              <input type="radio" value="${STORE.questions[STORE.questionOn - 1].a4}" name="answer" required>
+              <span>${STORE.questions[STORE.questionOn - 1].a4}</span>
+            </label>
+            <button type="submit" class="js-submit-button">Submit</button>
+          </fieldset>
+        </form>
+  </div>
+  `;
+}
 
 //answer page
-
-
-
-
-
+function answerPageTemplate() {
+  if (STORE.questionOn === 10) {
+    if (STORE.submittedAnswer === STORE.questions[STORE.questionOn - 1].correct) {
+      return `
+      <div id="correct-container">
+    <h2>Congratulations!</h2>
+    <p>Your answer is correct!</p>
+    <p>You finished the quiz!</p>
+  
+    <button type="button" id="js-next-question-button">See Results</button>
+  </div>
+      `;}
+    else {
+      return `
+      <div id="incorrect-container">
+    <h2>Incorrect!</h2>
+    <p>The correct answer is: ${STORE.questions[STORE.questionOn - 1].correct}</p>
+    <p>You fnished the quiz!</p>
+  
+    <button type="button" id="js-next-question-button">See Results</button>
+  </div>`;
+    }
+  }
+  else {
+    if (STORE.submittedAnswer === STORE.questions[STORE.questionOn - 1].correct) {
+      return `
+      <div id="correct-container">
+    <h2>Congratulations!</h2>
+    <p>Your answer is correct!</p>
+  
+    <button type="button" id="js-next-question-button">Next Question</button>
+  </div>
+      `;}
+    else {
+      return `
+      <div id="incorrect-container">
+    <h2>Incorrect!</h2>
+    <p>The correct answer is: ${STORE.questions[STORE.questionOn - 1].correct}</p>
+  
+    <button type="button" id="js-next-question-button">Next Question</button>
+  </div>`;
+    }
+  }
+}
 
 //results page
+function resultsPageTemplate() {
+  if (STORE.score >= 6) {
+    return `
+    <div id="results-container-positive">
+  <h2>You're a star!</h2>
+  <p>You got ${STORE.score}/10 questions correct!</p>
 
+  <button type="button" id="js-restart-quiz">Restart Quiz</button>
+</div>
+    `;
+  }
+  else {
+    return `
+    <div id="results-container-negative">
+  <h2>Boooooooooooo!</h2>
+  <p>You only got ${STORE.score}/10 questions correct...</p>
 
-
-
-
+  <button type="button" id="js-restart-quiz">Restart Quiz</button>
+</div>
+    `;
+  }
+}
 
 //View
 function renderQuiz() {
-  //startPage condition
-  //load start page, hide questions
-
-
-  //answerPage condition
-  //if submittedAnswer matches correct answer
-  //load congrats, correct answer
-  //if submittedAnswer does not match correct answer
-  //load sorry message
-  //use questionOn to load correct answer
-  //if questionOn = 10
-  //load View Results instead of Next Question
-
-
-  //resultsPage condition
-  //use score to load results
-
-
-  //else, the question page
-  //use questionOn for counter
-  //use score for score
-  //use questionOn for question text
-  //use questionOn for answer text
+  //if STORE.startPage = true, load startPage
+  if (STORE.startPage) {
+    $('#container').html(startPageTemplate());
+  }
+  //if STORE.quizPage = true, load quizPage
+  else if (STORE.quizPage) {
+    $('#container').html(questionPageTemplate());
+  }
+  //if STORE.answerPage = true, load answerPage
+  else if (STORE.answerPage) {
+    $('#container').html(answerPageTemplate());
+  }
+  //if STORE.resultsPage = true, load resultsPage
+  else if (STORE.resultsPage) {
+    $('#container').html(resultsPageTemplate());
+  }
 
 }
 
 //Model
 function questionAnswered(selectedAnswer) {
   //selectedAnswer = submittedAnswer
+  STORE.submittedAnswer = selectedAnswer;
+  //toggle on answerPage
+  STORE.answerPage = true;
+  //turn off quizPage
+  STORE.quizPage = false;
   //compare submittedAnswer to correct answer
   //if correct increase score
-  //toggle on answerPage
+  if (selectedAnswer === STORE.questions[STORE.questionOn - 1].correct) {
+    STORE.score ++;
+  }
+  
 
 }
 
 //Controller
 function handleSubmitAnswer() {
   //target submit button
-  //target selected answer
-  //questionAnswered(selected answer)
-  //renderQuiz()
+  $('#container').on('click', '.js-submit-button', function(event){
+    //prevent default
+    event.preventDefault();
+    //get selected answer
+    const selectedAnswer = $('input:checked').val();
+    //run questionAnswered
+    questionAnswered(selectedAnswer);
+    //run renderQuiz
+    renderQuiz();
+  });
 }
 
 //Model
 function newQuestion() {
-  //turn off startPage
-  //turn off answerPage
-  //questionOn +1
 
-  //if questionOn = 10
-  //turn on results page
+  if(STORE.questionOn < 10) {
+  //turn off startPage
+    STORE.startPage = false;
+    //turn off answerPage
+    STORE.answerPage = false;
+    //turn on quizPage
+    STORE.quizPage = true;
+    //questionOn +1
+    STORE.questionOn++;
+  }
+  else {
+  //turn off startPage
+    STORE.startPage = false;
+    //turn off answerPage
+    STORE.answerPage = false;
+    //turn on quizPage
+    STORE.quizPage = false;
+    //turn on resultsPage
+    STORE.resultsPage = true;
+  }
 }
 
 //Controller
 function handleStartQuiz() {
   //target start button
-  //newQuestion()
-  //renderQuiz()
+  $('#container').on('click', '#js-start-button', function(){
+    //running newQuestion
+    newQuestion();
+    //running renderQuiz
+    renderQuiz();
+  });
 }
 
 //Controller
 function handleNextQuestion() {
   //target Next Question button
-  //newQuestion()
-  //renderQuiz()
+  $('#container').on('click', '#js-next-question-button', function(){
+    //run newQuestion
+    newQuestion();
+    //run renderQuiz
+    renderQuiz();
+  });
 }
 
 //Model
 function resetQuiz() {
+  //RESETS ALL STORE VALUES
   //submittedAnswer = ''
+  STORE.submittedAnswer = '';
   //questionOn = 0
+  STORE.questionOn = 0;
   //score = 0
+  STORE.score = 0;
   //startPage = true
+  STORE.startPage = true;
+  //quizPage = false
+  STORE.quizPage = false;
   //answerPage = false
+  STORE.answerPage = false;
   //resultsPage= false
+  STORE.resultsPage = false;
 }
 
 //Controller
 function handleRestartQuiz() {
   //target restart quiz button
-  //resetQuiz()
-  //renderQuiz()
+  $('#container').on('click', '#js-restart-quiz', function(){
+    //run resetQuiz
+    resetQuiz();
+    //run renderQuiz
+    renderQuiz();
+  });
 }
 
 function handleQuizApp() {
-  renderQuiz();
   handleSubmitAnswer();
   handleStartQuiz();
   handleNextQuestion();
   handleRestartQuiz();
+  renderQuiz();
 }
 
 $(handleQuizApp);
