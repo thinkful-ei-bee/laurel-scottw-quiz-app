@@ -101,3 +101,100 @@ const STORE = {
   answerPage: false,
   resultsPage: false
 };
+
+
+//View
+function renderQuiz() {
+  //startPage condition
+  //load start page, hide questions
+
+
+  //answerPage condition
+  //if submittedAnswer matches correct answer
+  //load congrats, correct answer
+  //if submittedAnswer does not match correct answer
+  //load sorry message
+  //use questionOn to load correct answer
+  //if questionOn = 10
+  //load View Results instead of Next Question
+
+
+  //resultsPage condition
+  //use score to load results
+
+
+  //else, the question page
+  //use questionOn for counter
+  //use score for score
+  //use questionOn for question text
+  //use questionOn for answer text
+
+}
+
+//Model
+function questionAnswered(selectedAnswer) {
+  //selectedAnswer = submittedAnswer
+  //compare submittedAnswer to correct answer
+  //if correct increase score
+  //toggle on answerPage
+
+}
+
+//Controller
+function handleSubmitAnswer() {
+  //target submit button
+  //target selected answer
+  //questionAnswered(selected answer)
+  //renderQuiz()
+}
+
+//Model
+function newQuestion() {
+  //turn off startPage
+  //turn off answerPage
+  //questionOn +1
+
+  //if questionOn = 10
+  //turn on results page
+}
+
+//Controller
+function handleStartQuiz() {
+  //target start button
+  //newQuestion()
+  //renderQuiz()
+}
+
+//Controller
+function handleNextQuestion() {
+  //target Next Question button
+  //newQuestion()
+  //renderQuiz()
+}
+
+//Model
+function resetQuiz() {
+  //submittedAnswer = ''
+  //questionOn = 0
+  //score = 0
+  //startPage = true
+  //answerPage = false
+  //resultsPage= false
+}
+
+//Controller
+function handleRestartQuiz() {
+  //target restart quiz button
+  //resetQuiz()
+  //renderQuiz()
+}
+
+function handleQuizApp() {
+  renderQuiz();
+  handleSubmitAnswer();
+  handleStartQuiz();
+  handleNextQuestion();
+  handleRestartQuiz();
+}
+
+$(handleQuizApp);
