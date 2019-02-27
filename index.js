@@ -127,7 +127,27 @@ function questionPageTemplate(questionNum, currentScore) {
             <li>Score:<span class="personScore">${STORE.score}</span>/10</li>
           </ul>
         </header>
-    
+    <form>
+          <fieldset>
+            <label class="answerOption">
+              <input type="radio" value=" " name="answer" required>
+              <span></span>
+            </label>
+            <label class="answerOption">
+              <input type="radio" value=" " name="answer" required>
+              <span></span>
+            </label>
+            <label class="answerOption">
+              <input type="radio" value=" " name="answer" required>
+              <span></span>
+            </label>
+            <label class="answerOption">
+              <input type="radio" value=" " name="answer" required>
+              <span></span>
+            </label>
+            <button type="submit" class="submitButton">Submit</button>
+          </fieldset>
+        </form>
   </div>
   `;
 }
