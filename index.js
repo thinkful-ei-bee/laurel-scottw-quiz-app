@@ -129,23 +129,23 @@ function questionPageTemplate(questionNum, currentScore) {
         </header>
     <form>
           <fieldset>
-            <label class="answerOption">
-              <input type="radio" value=" " name="answer" required>
-              <span></span>
+            <label class="js-answerOption">
+              <input type="radio" value="${STORE.questions[STORE.questionOn - 1].a1}" name="answer" required>
+              <span>${STORE.questions[STORE.questionOn - 1].a1}</span>
             </label>
-            <label class="answerOption">
-              <input type="radio" value=" " name="answer" required>
-              <span></span>
+            <label class="js-answerOption">
+              <input type="radio" value="${STORE.questions[STORE.questionOn - 1].a2}" name="answer" required>
+              <span>${STORE.questions[STORE.questionOn - 1].a2}</span>
             </label>
-            <label class="answerOption">
-              <input type="radio" value=" " name="answer" required>
-              <span></span>
+            <label class="js-answerOption">
+              <input type="radio" value="${STORE.questions[STORE.questionOn - 1].a3}" name="answer" required>
+              <span>${STORE.questions[STORE.questionOn - 1].a3}</span>
             </label>
-            <label class="answerOption">
-              <input type="radio" value=" " name="answer" required>
-              <span></span>
+            <label class="js-answerOption">
+              <input type="radio" value="${STORE.questions[STORE.questionOn - 1].a4}" name="answer" required>
+              <span>${STORE.questions[STORE.questionOn - 1].a4}</span>
             </label>
-            <button type="submit" class="submitButton">Submit</button>
+            <button type="submit" class="js-submitButton">Submit</button>
           </fieldset>
         </form>
   </div>
