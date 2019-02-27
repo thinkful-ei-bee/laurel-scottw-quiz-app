@@ -104,12 +104,33 @@ const STORE = {
 
 
 //start page
+function startPageTemplate() {
+  return `
+  <section>
+  <h1>Oscars Quiz</h1>
+  <section id="start-page" role="region">
+  <h2>Ladies and Gentlemen, Welcome to the first annual Oscars Quiz!</h2>
+  <button id="js-start-button">Let's Goooo!</button>
+  <div class="resultsPage"></div>
+</section>`;
+}
 
+//question page
+function questionPageTemplate(questionNum, currentScore) {
+  return `
+
+  `;
+}
 
 
 
 
 //answer page
+function answerPageTemplate(questionNum, userAnswer) {
+  return `
+  
+  `;
+}
 
 
 
@@ -117,6 +138,11 @@ const STORE = {
 
 
 //results page
+function resultsPageTemplate(currentScore) {
+  return `
+  
+  `;
+}
 
 
 
