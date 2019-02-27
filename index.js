@@ -118,7 +118,17 @@ function startPageTemplate() {
 //question page
 function questionPageTemplate(questionNum, currentScore) {
   return `
-
+  <div id="quiz-container">
+      <header role="banner">
+          <img src="#" alt="#"> <!-- add an icon/image of like an award here or something-->
+          <ul>
+            <li>Question:<span class="quesNum">${STORE.questionOn}</span>/10</li>
+            <!-- might have to implement a grid but we will see if we can do without-->
+            <li>Score:<span class="personScore">${STORE.score}</span>/10</li>
+          </ul>
+        </header>
+    
+  </div>
   `;
 }
 
@@ -127,6 +137,8 @@ function questionPageTemplate(questionNum, currentScore) {
 
 //answer page
 function answerPageTemplate(questionNum, userAnswer) {
+  if (STORE.submittedAnswer === STORE.questions[STORE.questionOn - 1].correct)
+  
   return `
   
   `;
