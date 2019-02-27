@@ -184,9 +184,26 @@ function answerPageTemplate(questionNum, userAnswer) {
 
 //results page
 function resultsPageTemplate(currentScore) {
-  return `
-  
-  `;
+  if (STORE.score >= 6) {
+    return `
+    <div id="results-container-positive">
+  <h2>You're a star!</h2>
+  <p>You got ${STORE.score}/10 questions correct!</p>
+
+  <button type="button" id="js-restart-quiz">Next Question</button>
+</div>
+    `;
+  }
+  else {
+    return `
+    <div id="results-container-negative">
+  <h2>Boooooooooooo!</h2>
+  <p>You only got ${STORE.score}/10 questions correct...</p>
+
+  <button type="button" id="js-restart-quiz">Next Question</button>
+</div>
+    `;
+  }
 }
 
 
