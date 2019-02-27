@@ -116,7 +116,7 @@ function startPageTemplate() {
 }
 
 //question page
-function questionPageTemplate(questionNum, currentScore) {
+function questionPageTemplate() {
   return `
   <div id="quiz-container">
       <header role="banner">
@@ -157,11 +157,24 @@ function questionPageTemplate(questionNum, currentScore) {
 
 //answer page
 function answerPageTemplate(questionNum, userAnswer) {
-  if (STORE.submittedAnswer === STORE.questions[STORE.questionOn - 1].correct)
-  
-  return `
-  
-  `;
+  if (STORE.submittedAnswer === STORE.questions[STORE.questionOn - 1].correct) {
+    return `
+    <div id="correct-container">
+  <h2>Congratulations!</h2>
+  <p>Your answer is correct!</p>
+
+  <button type="button" id="js-next-question-button">Next Question</button>
+</div>
+    `;}
+  else {
+    return `
+    <div id="incorrect-container">
+  <h2>Incorrect!</h2>
+  <p>The correct answer is: ${STORE.questions[STORE.questionOn - 1].correct}</p>
+
+  <button type="button" id="js-next-question-button">Next Question</button>
+</div>`;
+  }
 }
 
 
