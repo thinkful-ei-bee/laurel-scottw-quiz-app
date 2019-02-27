@@ -109,8 +109,9 @@ function startPageTemplate() {
   <section>
   <h1>Oscars Quiz</h1>
   <section id="start-page" role="region">
-  <h2>Ladies and Gentlemen, Welcome to the first annual Oscars Quiz!</h2>
-  <button id="js-start-button">Let's Goooo!</button>
+  <h2>Ladies and Gentlemen,</h2>
+  <h2>Welcome to the first annual Oscars Quiz!</h2>
+  <button id="js-start-button">Start the Show!</button>
 </section>`;
 }
 
@@ -143,8 +144,8 @@ function questionPageTemplate() {
               <input type="radio" value="${STORE.questions[STORE.questionOn - 1].a4}" name="answer" required>
               <span>${STORE.questions[STORE.questionOn - 1].a4}</span>
             </label>
-            <button type="submit" class="js-submit-button">Submit</button>
           </fieldset>
+          <button type="submit" class="js-submit-button">Submit</button>
         </form>
   </div>
   `;
