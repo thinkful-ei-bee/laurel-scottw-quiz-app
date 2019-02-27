@@ -1,1 +1,24 @@
-STYLE
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-image: url('https://goo.gl/images/sT4SRU') no-repeat center fixed;
+    background-size: cover;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; 
+    background-color: red;
+}
+header {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+form {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}

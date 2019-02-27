@@ -119,7 +119,6 @@ function questionPageTemplate() {
   return `
   <div id="quiz-container">
       <header role="banner">
-          <img src="#" alt="#"> <!-- add an icon/image of like an award here or something-->
           <ul>
             <li>Question:<span class="quesNum">${STORE.questionOn}</span>/10</li>
             <li>Score:<span class="personScore">${STORE.score}</span>/10</li>
