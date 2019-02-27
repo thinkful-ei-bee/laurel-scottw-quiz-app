@@ -103,6 +103,26 @@ const STORE = {
 };
 
 
+//start page
+
+
+
+
+
+//answer page
+
+
+
+
+
+
+//results page
+
+
+
+
+
+
 //View
 function renderQuiz() {
   //startPage condition
