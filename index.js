@@ -1,5 +1,5 @@
 'use strict';
-
+//model- where the raw data exists
 const STORE = {
   questions: [
     {
@@ -109,8 +109,9 @@ function startPageTemplate() {
   <section>
   <h1>Oscars Quiz</h1>
   <section id="start-page" role="region">
-  <h2>Ladies and Gentlemen, Welcome to the first annual Oscars Quiz!</h2>
-  <button id="js-start-button">Let's Goooo!</button>
+  <h2>Ladies and Gentlemen,</h2>
+  <h2>Welcome to the first annual Oscars Quiz!</h2>
+  <button id="js-start-button">Start the Show!</button>
 </section>`;
 }
 
@@ -119,7 +120,6 @@ function questionPageTemplate() {
   return `
   <div id="quiz-container">
       <header role="banner">
-          <img src="#" alt="#"> <!-- add an icon/image of like an award here or something-->
           <ul>
             <li>Question:<span class="quesNum">${STORE.questionOn}</span>/10</li>
             <li>Score:<span class="personScore">${STORE.score}</span>/10</li>
@@ -127,7 +127,7 @@ function questionPageTemplate() {
         </header>
         <h2>${STORE.questions[STORE.questionOn - 1].text}</h2>
     <form>
-          <fieldset>
+          <fieldset id='js-form'>
             <label class="js-answerOption">
               <input type="radio" value="${STORE.questions[STORE.questionOn - 1].a1}" name="answer" required>
               <span>${STORE.questions[STORE.questionOn - 1].a1}</span>
@@ -144,14 +144,14 @@ function questionPageTemplate() {
               <input type="radio" value="${STORE.questions[STORE.questionOn - 1].a4}" name="answer" required>
               <span>${STORE.questions[STORE.questionOn - 1].a4}</span>
             </label>
-            <button type="submit" class="js-submit-button">Submit</button>
           </fieldset>
         </form>
+        <button type="submit" class="js-submit-button">Submit</button>
   </div>
   `;
 }
 
-//answer page
+//answer page //view
 function answerPageTemplate() {
   if (STORE.questionOn === 10) {
     if (STORE.submittedAnswer === STORE.questions[STORE.questionOn - 1].correct) {
@@ -197,7 +197,7 @@ function answerPageTemplate() {
   }
 }
 
-//results page
+//results page //view
 function resultsPageTemplate() {
   if (STORE.score >= 6) {
     return `
@@ -241,8 +241,7 @@ function renderQuiz() {
   }
 
 }
-
-//Model
+//controller -doesn't modify html
 function questionAnswered(selectedAnswer) {
   //selectedAnswer = submittedAnswer
   STORE.submittedAnswer = selectedAnswer;
@@ -274,7 +273,7 @@ function handleSubmitAnswer() {
   });
 }
 
-//Model
+//controller
 function newQuestion() {
 
   if(STORE.questionOn < 10) {
@@ -321,7 +320,7 @@ function handleNextQuestion() {
   });
 }
 
-//Model
+//controller
 function resetQuiz() {
   //RESETS ALL STORE VALUES
   //submittedAnswer = ''

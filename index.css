@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-image: url('https://ak5.picdn.net/shutterstock/videos/25319525/thumb/1.jpg?i10c=img.resize(height:160)') no-repeat center fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; 
+    background: linear-gradient(90deg, #CC0000, #FF8000);
+}
+header {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+}
+h1 {
+    padding: 100px;
+    font-size: 50px;
+}
+#js-start-button {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 50%;
+    font-size: 25px;
+    font-weight: 600;
+    background: linear-gradient(90deg, #CC0000, #FF8000);
+}
+#js-start-button:hover {
+    cursor: pointer;
+}
+ul, li {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.js-answer-option {
+    margin-top: 30px;
+    display: block;
+}
+fieldset {
+    display: inline-block;
+}
+fieldset span {
+    display: block;
+}
+.js-submit-button {
+    margin-top: 3%;
+    width: 200px;
+    height: 50px;
+    background-color: transparent;
+    font-size: 25px;
+    font-weight: 500;
+}
+.js-submit-button:hover {
+    cursor: pointer;
+}
+h2 {
+    margin-bottom: 2%;
+}
+#js-next-question-button {
+    margin-top: 3%;
+    width: 200px;
+    height: 50px;
+    background-color: transparent;
+    font-size: 25px;
+    font-weight: 500;
+}
+#js-next-question-button:hover {
+    cursor: pointer;
+}
+
+#js-form {
+    border: none;
+    font-size: 20px;
+}
