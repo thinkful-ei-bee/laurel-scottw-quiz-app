@@ -74,3 +74,8 @@ h2 {
 #js-next-question-button:hover {
     cursor: pointer;
 }
+
+#js-form {
+    border: none;
+    font-size: 20px;
+}
