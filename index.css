@@ -17,6 +17,8 @@ header {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    font-size: 30px;
+    font-weight: 600;
 }
 h1 {
     padding: 100px;
@@ -36,16 +38,39 @@ h1 {
 ul, li {
     margin-top: 30px;
     margin-bottom: 30px;
-    
 }
 .js-answer-option {
     margin-top: 30px;
     display: block;
-    
 }
 fieldset {
     display: inline-block;
 }
 fieldset span {
     display: block;
+}
+.js-submit-button {
+    margin-top: 3%;
+    width: 200px;
+    height: 50px;
+    background-color: transparent;
+    font-size: 25px;
+    font-weight: 500;
+}
+.js-submit-button:hover {
+    cursor: pointer;
+}
+h2 {
+    margin-bottom: 2%;
+}
+#js-next-question-button {
+    margin-top: 3%;
+    width: 200px;
+    height: 50px;
+    background-color: transparent;
+    font-size: 25px;
+    font-weight: 500;
+}
+#js-next-question-button:hover {
+    cursor: pointer;
 }
