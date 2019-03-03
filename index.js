@@ -1,5 +1,5 @@
 'use strict';
-
+//model- where the raw data exists
 const STORE = {
   questions: [
     {
@@ -127,7 +127,7 @@ function questionPageTemplate() {
         </header>
         <h2>${STORE.questions[STORE.questionOn - 1].text}</h2>
     <form>
-          <fieldset>
+          <fieldset id='js-form'>
             <label class="js-answerOption">
               <input type="radio" value="${STORE.questions[STORE.questionOn - 1].a1}" name="answer" required>
               <span>${STORE.questions[STORE.questionOn - 1].a1}</span>
@@ -145,13 +145,13 @@ function questionPageTemplate() {
               <span>${STORE.questions[STORE.questionOn - 1].a4}</span>
             </label>
           </fieldset>
-          <button type="submit" class="js-submit-button">Submit</button>
         </form>
+        <button type="submit" class="js-submit-button">Submit</button>
   </div>
   `;
 }
 
-//answer page
+//answer page //view
 function answerPageTemplate() {
   if (STORE.questionOn === 10) {
     if (STORE.submittedAnswer === STORE.questions[STORE.questionOn - 1].correct) {
@@ -197,7 +197,7 @@ function answerPageTemplate() {
   }
 }
 
-//results page
+//results page //view
 function resultsPageTemplate() {
   if (STORE.score >= 6) {
     return `
@@ -241,8 +241,7 @@ function renderQuiz() {
   }
 
 }
-
-//Model
+//controller -doesn't modify html
 function questionAnswered(selectedAnswer) {
   //selectedAnswer = submittedAnswer
   STORE.submittedAnswer = selectedAnswer;
@@ -274,7 +273,7 @@ function handleSubmitAnswer() {
   });
 }
 
-//Model
+//controller
 function newQuestion() {
 
   if(STORE.questionOn < 10) {
@@ -321,7 +320,7 @@ function handleNextQuestion() {
   });
 }
 
-//Model
+//controller
 function resetQuiz() {
   //RESETS ALL STORE VALUES
   //submittedAnswer = ''

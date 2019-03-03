@@ -36,11 +36,16 @@ h1 {
 ul, li {
     margin-top: 30px;
     margin-bottom: 30px;
+    
 }
 .js-answer-option {
     margin-top: 30px;
     display: block;
+    
 }
 fieldset {
     display: inline-block;
+}
+fieldset span {
+    display: block;
 }
